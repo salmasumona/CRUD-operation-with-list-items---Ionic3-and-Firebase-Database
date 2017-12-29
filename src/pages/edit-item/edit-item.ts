@@ -22,6 +22,18 @@ export class EditItem {
   }
 
   updateItem(item:Item){
+    if(item.name==''){
+        this.toast.show('Name is required');
+        return false;
+    }
+    if(item.quantity==''){
+        this.toast.show('Quantity is required');
+        return false;
+    }
+    if(item.price==''){
+        this.toast.show('Price is required');
+        return false;
+    }
   	this.items.editItem(item).then(() => {
   		this.toast.show(`${item.name} Updated`);
   		this.navCtrl.setRoot('HomePage');
