@@ -15,13 +15,13 @@ export class HomePage {
   itemsList$ : Observable<Item[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams, private items: ItemListService) {
   		this.itemsList$ = this.items
-  							 .getItemList()
-  							 .snapshotChanges()
-  							 .map(
-  							 changes => {
-						 		return changes.map(c =>({
-						 			key: c.payload.key, ...c.payload.val()
-						 		}));
-  		});
+			 .getItemList()
+			 .snapshotChanges()
+			 .map(
+			 changes => {
+	 		  return changes.map(c =>({
+		 			key: c.payload.key, ...c.payload.val()
+		 		}));
+      });
   }
 }
